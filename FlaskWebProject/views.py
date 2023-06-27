@@ -16,6 +16,21 @@ import uuid
 imageSourceUrl = 'https://'+ app.config['BLOB_ACCOUNT']  + '.blob.core.windows.net/' + app.config['BLOB_CONTAINER']  + '/'
 
 @app.route('/')
+def home():
+    log = request.values.get("log_button")
+    if log:
+        if log == 'info':
+            app.logger.info('No issue.')
+        elif log == 'warning':
+            app.logger.warning('Warning occured')
+        elif log == 'error':
+            app.logger.error('Error occured')
+        elif log == 'critical':
+            app.logger.critical('Critical error occured')
+    return render_template(
+        'index.html',
+        log=log
+    )
 @app.route('/home')
 @login_required
 def home():
