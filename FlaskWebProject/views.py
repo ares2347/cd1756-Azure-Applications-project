@@ -16,7 +16,11 @@ import uuid
 imageSourceUrl = 'https://'+ app.config['BLOB_ACCOUNT']  + '.blob.core.windows.net/' + app.config['BLOB_CONTAINER']  + '/'
 
 @app.route('/')
-def root():
+@app.route('/home')
+@login_required
+def home():
+    user = User.query.filter_by(username=current_user.username).first_or_404()
+    posts = Post.query.all()
     log = request.values.get("log_button")
     if log:
         if log == 'info':
@@ -29,17 +33,9 @@ def root():
             app.logger.critical('Critical error occured')
     return render_template(
         'index.html',
-        log=log
-    )
-@app.route('/home')
-@login_required
-def home():
-    user = User.query.filter_by(username=current_user.username).first_or_404()
-    posts = Post.query.all()
-    return render_template(
-        'index.html',
         title='Home Page',
-        posts=posts
+        posts=posts,
+        log=log
     )
 
 @app.route('/new_post', methods=['GET', 'POST'])
