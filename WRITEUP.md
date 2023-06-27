@@ -3,11 +3,11 @@
 ### Analyze, choose, and justify the appropriate resource option for deploying the app.
 
 *For **both** a VM or App Service solution for the CMS app:*
-APP SERVICE: Deploy through App Service is fairly easy with a reasonable cost. The CI/CD with Githubs Action is fast, convenient and easyto setup. A minor draw-back is that the cost is charged constantly even though no one is using it.
+APP SERVICE:  App Service solutions operate on a pay-as-you-go model, where you only pay for the resources consumed by your application, making it a more cost-effective option for CMS app. Furthermore, App Service provides high availability and automatic scaling without complex configuration, which is more suitable for lightweight app
 
-VM: Wider range of choice for customization. Easy to scale, good availability. For a light weight app, VM is a bit excessive
+VM: VMs involve managing and paying for the infrastructure, including the OS and software licenses. In addition, VM offers high availability options and more flexibility like vertical and horizontal scaling, which requires additional configuration and management effort. For bigger scale project and application, this approach is more cost-efficient and easier to maintain and scale.
 
-My Choice: I chose App Service because the CMS app is lightweight and no need for complex configuration. App Service would be a better choice since it is pretty straightforward and easier to monitor
+My Choice: I chose App Service because the CMS app is more efficient in cost and easier to deploy. The requirements for compute power is not too much, and the app configuration is straight forward and no need for high complex configuration. App Service should handle the deployment smoothly and also provide easy management of the CMS app. Also, App Service works great with Python too.
 
 ### Assess app changes that would change your decision.
 
