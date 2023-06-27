@@ -16,7 +16,7 @@ import uuid
 imageSourceUrl = 'https://'+ app.config['BLOB_ACCOUNT']  + '.blob.core.windows.net/' + app.config['BLOB_CONTAINER']  + '/'
 
 @app.route('/')
-def home():
+def root():
     log = request.values.get("log_button")
     if log:
         if log == 'info':
